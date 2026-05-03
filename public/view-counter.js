@@ -3,7 +3,6 @@
   var COUNTS_PATH = '/atlas-views/counts';
   var FIVE_YEARS  = 5 * 365.25 * 24 * 60 * 60 * 1000;
 
-  // Eye icon SVG rendered inline — no CSS mask needed, works on all mobile browsers
   var EYE_SVG =
     '<svg width="13" height="9" viewBox="0 0 13 9" fill="currentColor" ' +
         'aria-hidden="true" focusable="false" style="flex-shrink:0;opacity:.8">' +
@@ -14,19 +13,16 @@
 
   function normalizeProductPath(value) {
     if (!value) return '';
-
     var nextValue = value;
     if (/^https?:\/\//i.test(nextValue)) {
       nextValue = new URL(nextValue, window.location.origin).pathname;
     }
-
     nextValue = nextValue.split('#')[0].split('?')[0];
     nextValue = nextValue.replace(/\/+$/, '');
     nextValue = nextValue.split('/').pop() || '';
     return nextValue.replace(/\.html$/i, '');
   }
 
-  // Normalize product path → Firebase key.
   function toKey(filename) {
     return normalizeProductPath(filename).replace(/\./g, '_');
   }
@@ -50,9 +46,6 @@
     }
   }
 
-  // ── Increment count in Firebase for one product ────────────────────────────
-  // keepalive:true on the write requests so they survive page navigation.
-
   function incrementCount(filename) {
     var key = toKey(filename);
     if (!key) return;
@@ -62,7 +55,6 @@
       .then(function (r) { return r.json(); })
       .then(function (data) {
         var expired = !data || !data.since || (Date.now() - data.since >= FIVE_YEARS);
-
         if (expired) {
           return fetch(url, {
             method:    'PUT',
@@ -71,8 +63,6 @@
             body: JSON.stringify({ count: 1, since: { '.sv': 'timestamp' } })
           });
         }
-
-        // Atomic server-side increment — no race condition
         return fetch(url, {
           method:    'PATCH',
           keepalive: true,
@@ -82,8 +72,6 @@
       })
       .catch(function () {});
   }
-
-  // ── Fetch all counts and populate every visible product card ───────────────
 
   function displayViewCounts() {
     var cards = document.querySelectorAll('.product-card');
@@ -100,7 +88,6 @@
           if (!filename) return;
           var viewEl = card.querySelector('.product-card-views');
           if (!viewEl) return;
-
           var key   = toKey(filename);
           var entry = data[key];
           var count = (entry && entry.since && (Date.now() - entry.since < FIVE_YEARS))
@@ -111,8 +98,27 @@
       .catch(function () {});
   }
 
-  // Exposed so motherboard.js / monitor.js can call after their async render
   window.initViewCounters = displayViewCounts;
+
+  // ── Route-change handler (re-runs on every SPA navigation) ────────────────
+
+  var lastTrackedPath = '';
+
+  function onRouteChange() {
+    var currentPath = window.location.pathname;
+    if (currentPath === lastTrackedPath) return;
+    lastTrackedPath = currentPath;
+
+    var page = normalizeProductPath(currentPath);
+
+    if (page.indexOf('atlas-') === 0) {
+      incrementCount(page);
+    }
+
+    if (document.querySelector('.product-card')) {
+      displayViewCounts();
+    }
+  }
 
   // ── Boot ──────────────────────────────────────────────────────────────────
 
@@ -122,19 +128,18 @@
     if (booted) return;
     booted = true;
 
-    var page = normalizeProductPath(window.location.pathname);
+    // Patch history.pushState so Next.js client-side navigations are detected
+    var _push = history.pushState.bind(history);
+    history.pushState = function (state, title, url) {
+      _push(state, title, url);
+      setTimeout(onRouteChange, 50);
+    };
+    window.addEventListener('popstate', function () { setTimeout(onRouteChange, 50); });
 
-    // Product detail pages — increment this product's count
-    if (page.indexOf('atlas-') === 0) {
-      incrementCount(page);
-    }
+    // Run immediately for the current page
+    onRouteChange();
 
-    // Any page with static product cards — display counts immediately
-    if (document.querySelector('.product-card')) {
-      displayViewCounts();
-    }
-
-    // Refresh counts every 60 s so they stay current without a page reload
+    // Refresh counts every 60 s
     setInterval(function () {
       if (document.querySelector('.product-card')) {
         displayViewCounts();

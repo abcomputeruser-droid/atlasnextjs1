@@ -1,25 +1,22 @@
 (function () {
   var DB_URL   = 'https://ab-computer-bd-53afe-default-rtdb.asia-southeast1.firebasedatabase.app';
   var DB_PATH  = '/atlas-views/events';
-  var FRESH_MS = 30000;   // show events up to 30 s old on page load
+  var FRESH_MS = 30000;
 
   var SESSION_ID = Math.random().toString(36).slice(2) + Date.now().toString(36);
 
   function normalizeProductPath(value) {
     if (!value) return '';
-
     var nextValue = value;
     if (/^https?:\/\//i.test(nextValue)) {
       nextValue = new URL(nextValue, window.location.origin).pathname;
     }
-
     nextValue = nextValue.split('#')[0].split('?')[0];
     nextValue = nextValue.replace(/\/+$/, '');
     nextValue = nextValue.split('/').pop() || '';
     return nextValue.replace(/\.html$/i, '');
   }
 
-  // Keyed by clean slug
   var PRODUCT_NAMES = {
     'atlas-raven-h311-v1-motherboard-with-ddr4-m-2-for-intel-6th-9th-gen':
       'Atlas Raven H311 V1',
@@ -90,7 +87,6 @@
   }
 
   // ── Publish a view event ───────────────────────────────────────────────────
-  // keepalive:true keeps the request alive even if the browser navigates away.
 
   function publishView(identifier) {
     var slug = normalizeProductPath(identifier);
@@ -111,9 +107,6 @@
   }
 
   // ── Event deduplication ────────────────────────────────────────────────────
-  // lastSeenKey prevents the same Firebase push key from showing twice.
-  // We also enforce a freshness window (FRESH_MS) so that stale events
-  // from the initial SSE snapshot or old polls are never shown.
 
   var lastSeenKey = '';
   var sseReady    = false;
@@ -122,21 +115,11 @@
     if (!data || !data.product) return;
     if (key <= lastSeenKey) return;
     lastSeenKey = key;
-
-    // Ignore events older than FRESH_MS (30 s) — prevents showing stale
-    // notifications to users who open the page long after the event fired.
-    // Events with no ts are treated as fresh so they are never silently dropped.
     if (data.ts && (Date.now() - data.ts > FRESH_MS)) return;
-
     show(data.product);
   }
 
   // ── SSE — primary real-time channel ───────────────────────────────────────
-  // On the initial snapshot we process ALL existing events through
-  // handleNewEvent so that:
-  //   • Events fired within the last 30 s are shown immediately on every
-  //     screen that opens the page (cross-browser sync).
-  //   • Stale events update lastSeenKey without showing a popup.
 
   function listenSSE() {
     if (!('EventSource' in window)) return;
@@ -159,7 +142,6 @@
       }
 
       if (!sseReady) return;
-
       var key = payload.path.replace(/^\//, '');
       handleNewEvent(key, payload.data);
     });
@@ -177,14 +159,11 @@
     source.onerror = function () {
       source.close();
       sseReady = false;
-      setTimeout(listenSSE, 10000); // reconnect after 10 s
+      setTimeout(listenSSE, 10000);
     };
   }
 
   // ── Polling — universal fallback ───────────────────────────────────────────
-  // Runs immediately on load (so screens that open after an event still see it),
-  // then every 8 s. Deduplication via handleNewEvent/lastSeenKey ensures
-  // SSE and polling never show the same notification twice.
 
   function pollLatest() {
     var url = DB_URL + DB_PATH + '.json'
@@ -201,7 +180,7 @@
       .catch(function () {});
   }
 
-  // ── Click listener — fires publishView when a product link is clicked ──────
+  // ── Click listener ─────────────────────────────────────────────────────────
 
   function attachClickListeners() {
     document.addEventListener('click', function (e) {
@@ -212,14 +191,19 @@
     }, true);
   }
 
-  // ── Direct product page visit ──────────────────────────────────────────────
+  // ── Route-change handler (re-runs on every SPA navigation) ────────────────
 
-  function trackDirectVisit() {
-    var slug = normalizeProductPath(window.location.pathname);
+  var lastTrackedPath = '';
+
+  function onRouteChange() {
+    var currentPath = window.location.pathname;
+    if (currentPath === lastTrackedPath) return;
+    lastTrackedPath = currentPath;
+    var slug = normalizeProductPath(currentPath);
     if (PRODUCT_NAMES[slug]) publishView(slug);
   }
 
-  // ── Prune events older than 48 h (once per session) ───────────────────────
+  // ── Prune events older than 48 h ───────────────────────────────────────────
 
   function pruneOldEntries() {
     var cutoff = Date.now() - 48 * 60 * 60 * 1000;
@@ -248,11 +232,23 @@
   function bootLiveNotifications() {
     if (booted) return;
     booted = true;
+
     listenSSE();
     pollLatest();
     setInterval(pollLatest, 8000);
     attachClickListeners();
-    trackDirectVisit();
+
+    // Patch history.pushState so Next.js client-side navigations are detected
+    var _push = history.pushState.bind(history);
+    history.pushState = function (state, title, url) {
+      _push(state, title, url);
+      setTimeout(onRouteChange, 50);
+    };
+    window.addEventListener('popstate', function () { setTimeout(onRouteChange, 50); });
+
+    // Run immediately for the current page
+    onRouteChange();
+
     setTimeout(pruneOldEntries, 10000);
   }
 
