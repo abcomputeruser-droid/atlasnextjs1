@@ -112,6 +112,7 @@ export default function MotherboardsPage() {
                           <li key={j}>{f}</li>
                         ))}
                       </ul>
+                      <div className="product-card-views"></div>
                       <Link className="cta stretched-link" href={`/products/${slug}`}>
                         View Details
                       </Link>

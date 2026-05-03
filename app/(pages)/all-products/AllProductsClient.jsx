@@ -248,6 +248,7 @@ export default function AllProductsClient() {
                       <ul className="product-card-specs">
                         {p.specs.map((s, j) => <li key={j}>{s}</li>)}
                       </ul>
+                      <div className="product-card-views"></div>
                       <Link className="cta stretched-link" href={p.href}>View Details</Link>
                     </div>
                   </article>
@@ -360,6 +361,7 @@ export default function AllProductsClient() {
                       <ul className="product-card-specs">
                         {p.specs.map((s, j) => <li key={j}>{s}</li>)}
                       </ul>
+                      <div className="product-card-views"></div>
                       <Link className="cta stretched-link" href={p.href}>View Details</Link>
                     </div>
                   </article>
