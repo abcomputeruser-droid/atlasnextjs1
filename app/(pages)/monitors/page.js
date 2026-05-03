@@ -98,34 +98,32 @@ export default function MonitorsPage() {
         <section className="section" id="products">
           <div className="container">
             <div className="section-title">{productsTitle}</div>
-            <div className="product-list">
+            <div className="product-grid">
               {products.map((product, i) => {
                 const slug = product.url.replace('.html', '')
                 return (
-                  <div className="product-list-item" key={i}>
-                    <div className="product-list-img">
+                  <article className="product-card" key={i}>
+                    <div className="product-card-media">
                       <img
                         src={`/${product.image}`}
                         alt={product.title}
                         title={product.title}
                       />
+                      <span className="product-card-tag">Monitor</span>
                     </div>
-                    <div className="product-list-content">
+                    <div className="product-card-body">
                       <h3>{product.title}</h3>
-                      <p className="product-list-subtitle">{product.subtitle}</p>
-                      <ul className="product-list-features">
+                      <p className="product-card-summary">{product.subtitle}</p>
+                      <ul className="product-card-specs">
                         {product.features.map((f, j) => (
                           <li key={j}>{f}</li>
                         ))}
                       </ul>
-                      {product.price && (
-                        <p className="product-list-price">{product.price}</p>
-                      )}
-                      <Link className="cta" href={`/products/${slug}`}>
+                      <Link className="cta stretched-link" href={`/products/${slug}`}>
                         View Details
                       </Link>
                     </div>
-                  </div>
+                  </article>
                 )
               })}
             </div>
