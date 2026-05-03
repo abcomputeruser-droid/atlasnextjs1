@@ -1,5 +1,5 @@
 "use client"
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Script from 'next/script'
 import Nav from '../../../components/Nav'
@@ -117,8 +117,56 @@ const MONITORS = [
   },
 ]
 
+const NA_SLIDES = [
+  {
+    href: '/products/atlas-ats24ifb100-23-8-inch-ips-fhd-100hz-monitor',
+    badge: 'New Arrival',
+    name: 'ATLAS ATS24IFB100',
+    specs: ['23.8"', 'IPS A+', 'FHD 1080p', '100Hz', '5ms'],
+    hiIdx: 3,
+    desc: 'Premium IPS A+ Grade panel with accurate colour, fast 5ms response, and a slim borderless build — made for daily work and creative use.',
+    img: '/assets/images/products/ats24ifb100-main.png',
+    alt: 'ATLAS ATS24IFB100 23.8-Inch IPS FHD 100Hz Monitor',
+  },
+  {
+    href: '/products/atlas-21-5-full-hd-led-monitor-1920x1080-60hz-hdmi-vga-5ms-white',
+    badge: 'New Arrival',
+    name: 'ATLAS 21.5" Full HD LED Monitor',
+    specs: ['21.5"', 'LED', 'FHD 1080p', '60Hz', '5ms'],
+    hiIdx: -1,
+    desc: '21.5-inch Full HD display with anti-glare screen, slim white design, and both HDMI and VGA — clean, quiet, and dependable.',
+    img: '/assets/images/products/ats22fw060-main.png',
+    alt: 'ATLAS 21.5 Inch Full HD LED Monitor',
+  },
+  {
+    href: '/products/atlas-ats22vfw100e-elite-series-21-5-100hz-full-hd-led-monitor',
+    badge: 'New Arrival',
+    name: 'ATLAS ATS22VFW100E Elite',
+    specs: ['21.5"', 'LED', 'FHD 1080p', '100Hz', '3000:1'],
+    hiIdx: 3,
+    desc: 'Elite Series with dynamic LED backlight, 3000:1 contrast ratio, and 100Hz refresh — built for vivid, smooth visuals every day.',
+    img: '/assets/images/products/ats22vfw100e-main.png',
+    alt: 'ATLAS ATS22VFW100E Elite Series Monitor',
+  },
+]
+
 export default function AllProductsClient() {
   const [filter, setFilter] = useState('all')
+  const [current, setCurrent] = useState(0)
+  const [paused, setPaused] = useState(false)
+  const timerRef = useRef(null)
+  const N = NA_SLIDES.length
+  const INTERVAL = 4500
+
+  function goTo(idx) { setCurrent(((idx % N) + N) % N) }
+  function pad(n) { return n < 10 ? '0' + n : '' + n }
+
+  useEffect(() => {
+    if (!paused) {
+      timerRef.current = setInterval(() => setCurrent(c => (c + 1) % N), INTERVAL)
+    }
+    return () => clearInterval(timerRef.current)
+  }, [paused])
 
   const showMB = filter === 'all' || filter === 'motherboard'
   const showMon = filter === 'all' || filter === 'monitor'
@@ -209,17 +257,83 @@ export default function AllProductsClient() {
           </section>
         )}
 
-        <section className="section" style={{ paddingTop: '12px', paddingBottom: '12px' }}>
-          <div className="container">
-            <div className={styles.featureBanner}>
-              <div className={styles.featureBannerText}>
-                <p className="eyebrow" style={{ color: 'var(--accent)' }}>New Arrival</p>
-                <h2>Raven B450M Frost — AMD Ryzen Ready</h2>
-                <p>Supports Ryzen 1st through 5th Gen processors on the AM4 platform with 3200 MHz (OC) memory and fast M.2 NVMe storage.</p>
+        <section
+          className="na-slider"
+          aria-label="New Arrivals"
+          tabIndex={0}
+          onMouseEnter={() => { setPaused(true); clearInterval(timerRef.current) }}
+          onMouseLeave={() => { setPaused(false) }}
+          onKeyDown={(e) => {
+            if (e.key === 'ArrowLeft') goTo(current - 1)
+            if (e.key === 'ArrowRight') goTo(current + 1)
+          }}
+        >
+          <div className="na-bg-lines" aria-hidden="true"></div>
+          <div className="na-drop na-drop-1" aria-hidden="true"></div>
+          <div className="na-drop na-drop-2" aria-hidden="true"></div>
+          <div className="na-drop na-drop-3" aria-hidden="true"></div>
+          <div className="na-drop na-drop-4" aria-hidden="true"></div>
+          <div className="na-drop na-drop-5" aria-hidden="true"></div>
+
+          <div className="na-header">
+            <div className="container na-header-inner">
+              <div className="na-header-left">
+                <p className="eyebrow" style={{ color: 'var(--accent)' }}>New Arrivals</p>
+                <h2 className="na-title">Just Landed</h2>
               </div>
-              <div className={styles.featureBannerActions}>
-                <Link className="cta stretched-link" href="/products/atlas-raven-b450m-frost-micro-atx-am4-motherboard-with-ryzen-1000-5600-support">Shop Now</Link>
-                <Link className="cta ghost" href="/motherboards">All Motherboards</Link>
+              <span className="na-count" aria-live="polite">{pad(current + 1)} / {pad(N)}</span>
+            </div>
+          </div>
+
+          <div className="na-track-wrap">
+            <div className="na-track" style={{ transform: `translateX(-${current * 100}%)` }}>
+              {NA_SLIDES.map((slide, i) => (
+                <Link
+                  key={i}
+                  className={`na-slide${i === current ? ' na-slide--active' : ''}`}
+                  href={slide.href}
+                >
+                  <div className="container na-grid">
+                    <div className="na-text">
+                      <span className="na-badge">{slide.badge}</span>
+                      <h3 className="na-product-name">{slide.name}</h3>
+                      <div className="na-specs">
+                        {slide.specs.map((s, j) => (
+                          <span key={j} className={`na-spec${j === slide.hiIdx ? ' na-spec--hi' : ''}`}>{s}</span>
+                        ))}
+                      </div>
+                      <p>{slide.desc}</p>
+                    </div>
+                    <div className="na-img-wrap">
+                      <img src={slide.img} alt={slide.alt} loading="lazy" />
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <button className="na-arrow na-arrow--prev" onClick={(e) => { e.preventDefault(); e.stopPropagation(); goTo(current - 1) }} aria-label="Previous slide">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M11 3.5L5.5 9L11 14.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+          </button>
+          <button className="na-arrow na-arrow--next" onClick={(e) => { e.preventDefault(); e.stopPropagation(); goTo(current + 1) }} aria-label="Next slide">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M7 3.5L12.5 9L7 14.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+          </button>
+
+          <div className="na-footer">
+            <div className="container na-footer-inner">
+              <div className="hero-slider-dots">
+                {NA_SLIDES.map((_, i) => (
+                  <button
+                    key={i}
+                    className={`hero-dot${i === current ? ' is-active' : ''}`}
+                    aria-label={`Slide ${i + 1}`}
+                    onClick={(e) => { e.preventDefault(); e.stopPropagation(); goTo(i) }}
+                  />
+                ))}
+              </div>
+              <div className="na-progress-track">
+                <div className={`na-progress-fill${!paused ? ' is-running' : ''}`} key={current}></div>
               </div>
             </div>
           </div>
