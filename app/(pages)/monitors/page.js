@@ -56,13 +56,6 @@ export default function MonitorsPage() {
                 <a className="cta ghost" href="#specs">Compare Models</a>
               </div>
             </div>
-            <div className="product-category-hero-media">
-              <img
-                src={`/${hero.image}`}
-                alt="Atlas Monitor"
-                title="Atlas Monitor"
-              />
-            </div>
           </div>
           <div className="hero-gradient" aria-hidden="true"></div>
         </section>
