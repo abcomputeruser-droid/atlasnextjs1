@@ -49,12 +49,12 @@ export default async function ProductPage({ params }) {
         btnHref={p.navBtnHref}
       />
       <main>
-        <section className="hero hero-product" id="overview">
-          <div className="container hero-product-inner">
-            <div className="hero-product-text">
+        <section className="hero product-hero" id="top">
+          <div className="container product-hero-grid">
+            <div className="product-hero-content">
               <p className="eyebrow">{p.eyebrow}</p>
               <h1>{p.title}</h1>
-              <p className="hero-subtitle">{p.subtitle}</p>
+              <p>{p.subtitle}</p>
               <div className="hero-chips">
                 {p.chips.map((chip, i) => (
                   <div key={i} className="chip">
@@ -63,37 +63,44 @@ export default async function ProductPage({ params }) {
                   </div>
                 ))}
               </div>
-            </div>
-            <div className="hero-product-media">
-              <div className="product-float">
-                {p.heroFloat.map((f, i) => (
-                  <div key={i} className="float-badge">{f}</div>
-                ))}
+              <div className="hero-actions">
+                <a className="cta" href="#overview">Explore Overview</a>
+                <a className="cta ghost" href="#specs">Full Specs</a>
               </div>
-              <img
-                src={p.image}
-                alt={p.title}
-                className="hero-product-img"
-                width={600}
-                height={400}
-              />
+            </div>
+            <div className="product-hero-media">
+              <div className="product-hero-card">
+                <img
+                  src={p.image}
+                  alt={p.title}
+                  title={p.title}
+                />
+                <div className="hero-float">
+                  {p.heroFloat.map((f, i) => (
+                    <span key={i}>{f}</span>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
+          <div className="hero-gradient" aria-hidden="true"></div>
         </section>
 
-        <section className="section" id="overview-detail">
+        <section className="section" id="overview">
           <div className="container">
             <div className="section-title">Overview</div>
-            <div className="overview-body">
-              <p>{p.overviewBody}</p>
-            </div>
-            <div className="overview-stats">
-              {p.overviewStats.map((stat, i) => (
-                <div key={i} className="stat-card">
-                  <span className="stat-value">{stat.value}</span>
-                  <span className="stat-label">{stat.label}</span>
-                </div>
-              ))}
+            <div className="overview-header">
+              <div>
+                <p>{p.overviewBody}</p>
+              </div>
+              <div className="overview-stats">
+                {p.overviewStats.map((stat, i) => (
+                  <div key={i} className="stat-card">
+                    <span className="stat-value">{stat.value}</span>
+                    <span className="stat-label">{stat.label}</span>
+                  </div>
+                ))}
+              </div>
             </div>
             <div className="cards">
               {p.overviewCards.map((card, i) => (
@@ -106,24 +113,24 @@ export default async function ProductPage({ params }) {
           </div>
         </section>
 
-        <section className="section" id="gallery">
+        <section className="section product-gallery" id="gallery">
           <div className="container">
             <div className="section-title">Gallery</div>
             <div className="gallery-grid">
               {p.gallery.map((item, i) => (
-                <div key={i} className={`gallery-item${item.cls ? ` ${item.cls}` : ''}`}>
-                  <img src={item.src} alt={item.alt} loading="lazy" />
-                  {item.caption && <p className="gallery-caption">{item.caption}</p>}
-                </div>
+                <figure key={i} className={`gallery-item${item.cls ? ` ${item.cls}` : ''}`}>
+                  <img src={item.src} alt={item.alt} title={item.alt} loading="lazy" />
+                  {item.caption && <figcaption>{item.caption}</figcaption>}
+                </figure>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="section" id="specs">
+        <section className="section product-specs" id="specs">
           <div className="container">
             <div className="section-title">Specifications</div>
-            <div className="spec-cards">
+            <div className="specs-grid">
               {p.specCards.map((card, i) => (
                 <div key={i} className="spec-card">
                   <h3>{card.title}</h3>
