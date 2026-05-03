@@ -34,11 +34,6 @@ export default function CompanyPage() {
           <div className="container hero-single-inner">
             <div className="hero-text">
               <p className="eyebrow">Company · Founded 2020</p>
-              <div className={styles.heroPills}>
-                <span className={styles.heroPill}>Reliable</span>
-                <span className={styles.heroPill}>Performance</span>
-                <span className={styles.heroPill}>Design Focused</span>
-              </div>
               <h1>Built on Precision.</h1>
               <p>Motherboards and monitors built for real workloads. Intel 2nd&ndash;9th gen, AMD Ryzen 1000&ndash;5600, displays 17&ndash;24 inches. Warranty included.</p>
               <div className="hero-actions">
