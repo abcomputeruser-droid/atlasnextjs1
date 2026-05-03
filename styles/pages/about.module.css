@@ -1,0 +1,212 @@
+.aboutHero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f141b 0%, #1d2840 100%);
+  color: #fff;
+}
+.aboutHero :global(.eyebrow) { color: var(--accent-cool); }
+.aboutHero :global(h1) { color: #fff; }
+.aboutHero :global(p) { color: rgba(255,255,255,0.72); }
+.aboutHero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(700px 400px at 5% 85%, rgba(255,77,45,0.3), transparent 60%),
+    radial-gradient(600px 380px at 95% 10%, rgba(45,212,255,0.22), transparent 60%),
+    radial-gradient(400px 300px at 50% 50%, rgba(255,183,3,0.12), transparent 60%);
+  animation: quality-shift 9s ease-in-out infinite alternate;
+  z-index: 0;
+}
+.aboutHero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    120deg,
+    rgba(255,255,255,0.025) 0px,
+    rgba(255,255,255,0.025) 1px,
+    transparent 1px,
+    transparent 52px
+  );
+  z-index: 0;
+}
+.aboutHero :global(.container) { position: relative; z-index: 1; }
+.aboutHero :global(.chip) { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.12); }
+.aboutHero :global(.chip-label) { color: rgba(255,255,255,0.5); }
+.aboutHero :global(.hero-chips .chip:nth-child(1) .chip-value) { color: #ff4d2d; }
+.aboutHero :global(.hero-chips .chip:nth-child(2) .chip-value) { color: #2dd4ff; }
+.aboutHero :global(.hero-chips .chip:nth-child(3) .chip-value) { color: #ffb703; }
+.aboutHero :global(.hero-chips .chip:nth-child(4) .chip-value) { color: rgba(255,255,255,0.9); }
+
+.heroOrb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: quality-float 7s ease-in-out infinite alternate;
+}
+.heroOrbA {
+  width: 280px; height: 280px;
+  background: radial-gradient(circle, rgba(255,77,45,0.35), transparent 70%);
+  top: -80px; right: -60px;
+  filter: blur(55px);
+  animation-delay: 0s;
+}
+.heroOrbB {
+  width: 220px; height: 220px;
+  background: radial-gradient(circle, rgba(45,212,255,0.28), transparent 70%);
+  bottom: -50px; left: -40px;
+  filter: blur(45px);
+  animation-delay: -3s;
+}
+.heroOrbC {
+  width: 180px; height: 180px;
+  background: radial-gradient(circle, rgba(255,183,3,0.22), transparent 70%);
+  top: 45%; left: 60%;
+  filter: blur(40px);
+  animation-delay: -5s;
+}
+
+.storySection {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, #07090f 0%, #101828 60%, #0c1220 100%);
+  color: #fff;
+}
+.storySection :global(.eyebrow) { color: var(--accent); }
+.storySection :global(h2) { color: #fff; }
+.storySection :global(p) { color: rgba(255,255,255,0.7); }
+.storySection :global(.company-list li) { color: rgba(255,255,255,0.8); }
+.storySection :global(.company-list li::before) { background: var(--accent-2); }
+.storySection :global(.container) { position: relative; z-index: 2; }
+
+.storyLines {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255,255,255,0.028) 0px,
+    rgba(255,255,255,0.028) 1px,
+    transparent 1px,
+    transparent 72px
+  );
+  animation: story-speed 1.4s linear infinite;
+  transform-origin: left center;
+}
+
+.storyDrop {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+  animation: story-drop-anim var(--dur) ease-in-out infinite;
+  animation-delay: var(--delay);
+  pointer-events: none;
+  opacity: 0;
+}
+.storyDrop1 {
+  --dur: 5s; --delay: 0s;
+  width: 220px; height: 220px;
+  top: 10%; left: 65%;
+  background: radial-gradient(circle, rgba(255,77,45,0.6), transparent 70%);
+  filter: blur(22px);
+}
+.storyDrop2 {
+  --dur: 6.5s; --delay: -2s;
+  width: 180px; height: 180px;
+  top: 55%; left: 80%;
+  background: radial-gradient(circle, rgba(45,212,255,0.5), transparent 70%);
+  filter: blur(18px);
+}
+.storyDrop3 {
+  --dur: 5.8s; --delay: -4s;
+  width: 150px; height: 150px;
+  top: 30%; left: 72%;
+  background: radial-gradient(circle, rgba(255,183,3,0.55), transparent 70%);
+  filter: blur(16px);
+}
+.storyDrop4 {
+  --dur: 7s; --delay: -1.5s;
+  width: 120px; height: 120px;
+  top: 70%; left: 58%;
+  background: radial-gradient(circle, rgba(255,77,45,0.45), transparent 70%);
+  filter: blur(14px);
+}
+.storyDrop5 {
+  --dur: 6s; --delay: -3s;
+  width: 100px; height: 100px;
+  top: 15%; left: 88%;
+  background: radial-gradient(circle, rgba(45,212,255,0.4), transparent 70%);
+  filter: blur(12px);
+}
+
+.qualitySection {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f141b 0%, #1d2840 100%);
+  color: #fff;
+}
+.qualitySection :global(.eyebrow) { color: var(--accent-cool); }
+.qualitySection :global(h2) { color: #fff; }
+.qualitySection :global(p) { color: rgba(255,255,255,0.72); }
+.qualitySection :global(.company-list li) { color: rgba(255,255,255,0.8); }
+.qualitySection :global(.company-list li::before) { background: var(--accent); }
+.qualitySection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(700px 400px at 5% 85%, rgba(255,77,45,0.3), transparent 60%),
+    radial-gradient(600px 380px at 95% 10%, rgba(45,212,255,0.22), transparent 60%),
+    radial-gradient(400px 300px at 50% 50%, rgba(255,183,3,0.12), transparent 60%);
+  animation: quality-shift 9s ease-in-out infinite alternate;
+  z-index: 0;
+}
+.qualitySection::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    120deg,
+    rgba(255,255,255,0.025) 0px,
+    rgba(255,255,255,0.025) 1px,
+    transparent 1px,
+    transparent 52px
+  );
+  z-index: 0;
+}
+.qualitySection :global(.container) { position: relative; z-index: 1; }
+
+.qualityOrb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: quality-float 7s ease-in-out infinite alternate;
+}
+.qualityOrbA {
+  width: 260px; height: 260px;
+  background: radial-gradient(circle, rgba(255,77,45,0.35), transparent 70%);
+  top: -60px; left: -60px;
+  filter: blur(50px);
+  animation-delay: 0s;
+}
+.qualityOrbB {
+  width: 220px; height: 220px;
+  background: radial-gradient(circle, rgba(45,212,255,0.28), transparent 70%);
+  bottom: -40px; right: -40px;
+  filter: blur(45px);
+  animation-delay: -3s;
+}
+.qualityOrbC {
+  width: 180px; height: 180px;
+  background: radial-gradient(circle, rgba(255,183,3,0.22), transparent 70%);
+  top: 40%; left: 55%;
+  filter: blur(40px);
+  animation-delay: -5s;
+}

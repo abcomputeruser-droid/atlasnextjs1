@@ -1,0 +1,307 @@
+.inqToast {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 2000;
+  background: linear-gradient(120deg, var(--accent, #ff4d2d) 0%, var(--accent-2, #ffb703) 100%);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  box-shadow: 0 4px 24px rgba(255,77,45,0.28);
+  font-family: var(--font-body, "Figtree", sans-serif);
+  font-size: 0.875rem;
+  font-weight: 600;
+  transform: translateY(-100%);
+  transition: transform 0.35s cubic-bezier(0.34,1.3,0.64,1);
+}
+.inqToastVisible {
+  display: flex;
+  transform: translateY(0);
+}
+.inqToastMsg { flex: 1; }
+.inqToastTimer {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  opacity: 0.9;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.inqToastRing {
+  width: 22px; height: 22px;
+  flex-shrink: 0;
+}
+.inqToastRing circle {
+  fill: none;
+  stroke: rgba(255,255,255,0.35);
+  stroke-width: 3;
+}
+.inqToastRing .progress {
+  stroke: #fff;
+  stroke-linecap: round;
+  stroke-dasharray: 57;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1s linear;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+.progress {
+  stroke: #fff;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1s linear;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+.inqToastClose {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  border-radius: 999px;
+  color: #fff;
+  cursor: pointer;
+  width: 26px; height: 26px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+  transition: background 0.18s;
+}
+.inqToastClose:hover { background: rgba(255,255,255,0.35); }
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  margin-top: 2rem;
+}
+@media (max-width: 768px) {
+  .contactGrid { grid-template-columns: 1fr; }
+}
+
+.inquiryWrap {
+  margin-top: 2.5rem;
+  background: var(--card-bg, #fff);
+  border: 1px solid var(--border, rgba(0,0,0,0.08));
+  border-radius: 16px;
+  padding: 2rem 2rem 2rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.inquiryWrap h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+.inquirySub {
+  font-size: 0.85rem;
+  color: var(--muted, #666);
+  margin: 0 0 1.5rem;
+}
+
+.inqRow { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+@media (max-width: 768px) { .inqRow { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .inqRow { grid-template-columns: 1fr; } }
+.inqRow2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+@media (max-width: 480px) { .inqRow2 { grid-template-columns: 1fr; } }
+.inqField { display: flex; flex-direction: column; gap: 0.3rem; }
+.inqFieldFull { margin-top: 1rem; }
+.inqField label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted, #555);
+}
+.inqField input,
+.inqField select,
+.inqField textarea {
+  padding: 0.6rem 0.85rem;
+  border-radius: 8px;
+  border: 1px solid var(--border, rgba(0,0,0,0.14));
+  background: #f8f9fb;
+  font-size: 0.875rem;
+  color: var(--text, #111);
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.18s, box-shadow 0.18s;
+  font-family: inherit;
+}
+.inqField input:focus,
+.inqField select:focus,
+.inqField textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+}
+.inqField textarea { resize: vertical; min-height: 100px; }
+.inqFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+.inqFooter p {
+  font-size: 0.78rem;
+  color: var(--muted, #666);
+  margin: 0;
+}
+.inqSuccess {
+  text-align: center;
+  padding: 1.5rem;
+  color: #16a34a;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.bdmCard {
+  background: var(--card-bg, #fff);
+  border: 1px solid var(--border, rgba(0,0,0,0.08));
+  border-radius: 16px;
+  padding: 2rem 1.75rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.bdmProfile {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+}
+.bdmAvatar {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.02em;
+  border: 3px solid rgba(37,99,235,0.15);
+}
+.bdmAvatar img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.bdmIdentity { min-width: 0; }
+.bdmIdentity h3 { margin: 0 0 0.2rem; font-size: 1.05rem; font-weight: 700; }
+.bdmTitle {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #2563eb;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.25rem;
+}
+.bdmDept {
+  font-size: 0.8rem;
+  color: var(--muted, #666);
+  margin: 0;
+}
+.bdmDivider {
+  border: none;
+  border-top: 1px solid var(--border, rgba(0,0,0,0.08));
+  margin: 0;
+}
+.bdmDetails { display: flex; flex-direction: column; gap: 0.65rem; }
+.bdmDetail {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 0.875rem;
+}
+.bdmDetailIcon {
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  background: #f1f5fd;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.bdmDetail a {
+  color: var(--text, #111);
+  text-decoration: none;
+  word-break: break-all;
+}
+.bdmDetail a:hover { color: #2563eb; text-decoration: underline; }
+.bdmBio {
+  font-size: 0.85rem;
+  color: var(--muted, #555);
+  line-height: 1.6;
+  margin: 0;
+  border-left: 3px solid #2563eb;
+  padding-left: 0.85rem;
+}
+
+.policiesSection {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f141b 0%, #1d2840 100%);
+  color: #fff;
+}
+.policiesSection :global(.section-title) { color: #fff; }
+.policiesSection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(700px 400px at 5% 85%, rgba(255,77,45,0.3), transparent 60%),
+    radial-gradient(600px 380px at 95% 10%, rgba(45,212,255,0.22), transparent 60%),
+    radial-gradient(400px 300px at 50% 50%, rgba(255,183,3,0.12), transparent 60%);
+  animation: quality-shift 9s ease-in-out infinite alternate;
+  z-index: 0;
+}
+.policiesSection::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    120deg,
+    rgba(255,255,255,0.025) 0px,
+    rgba(255,255,255,0.025) 1px,
+    transparent 1px,
+    transparent 52px
+  );
+  z-index: 0;
+}
+.policiesSection :global(.container) { position: relative; z-index: 1; }
+.policiesSection :global(.specs-table) {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.1);
+  box-shadow: none;
+}
+.policiesSection :global(.specs-table thead) { background: rgba(255,255,255,0.06); }
+.policiesSection :global(.specs-table table) { background: transparent; }
+.policiesSection :global(.specs-table th) { color: rgba(255,255,255,0.5); border-color: rgba(255,255,255,0.1); }
+.policiesSection :global(.specs-table td) { color: rgba(255,255,255,0.85); border-color: rgba(255,255,255,0.1); }
+.policiesSection :global(.specs-table tbody tr:hover) { background: rgba(255,255,255,0.05); }
+
+.policiesOrb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: quality-float 7s ease-in-out infinite alternate;
+}
+.policiesOrbA {
+  width: 260px; height: 260px;
+  background: radial-gradient(circle, rgba(45,212,255,0.3), transparent 70%);
+  top: -60px; right: -60px;
+  filter: blur(50px);
+  animation-delay: 0s;
+}
+.policiesOrbB {
+  width: 220px; height: 220px;
+  background: radial-gradient(circle, rgba(255,77,45,0.28), transparent 70%);
+  bottom: -40px; left: -40px;
+  filter: blur(45px);
+  animation-delay: -3s;
+}

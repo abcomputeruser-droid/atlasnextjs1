@@ -1,0 +1,175 @@
+.heroPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.heroPill {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  color: var(--ink-soft);
+  background: rgba(15, 23, 42, 0.05);
+}
+
+.storySection {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, #07090f 0%, #101828 60%, #0c1220 100%);
+  color: #fff;
+}
+.storySection :global(.eyebrow) { color: var(--accent); }
+.storySection :global(h2) { color: #fff; }
+.storySection :global(p) { color: rgba(255,255,255,0.7); }
+.storySection :global(.company-list li) { color: rgba(255,255,255,0.8); }
+.storySection :global(.company-list li::before) { background: var(--accent-2); }
+.storySection :global(.container) { position: relative; z-index: 2; }
+
+.storySplit {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 24px;
+}
+.storyBlock :global(p) { margin-bottom: 12px; }
+.storyFooter {
+  margin-top: 20px;
+  font-size: 14px;
+  opacity: 0.55;
+}
+@media (max-width: 700px) {
+  .storySplit { grid-template-columns: 1fr; gap: 20px; }
+}
+
+.storyLines {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255,255,255,0.028) 0px,
+    rgba(255,255,255,0.028) 1px,
+    transparent 1px,
+    transparent 72px
+  );
+  animation: story-speed 1.4s linear infinite;
+  transform-origin: left center;
+}
+
+.storyDrop {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+  animation: story-drop-anim var(--dur) ease-in-out infinite;
+  animation-delay: var(--delay);
+  pointer-events: none;
+  opacity: 0;
+}
+.storyDrop1 {
+  --dur: 5s; --delay: 0s;
+  width: 220px; height: 220px;
+  top: 10%; left: 65%;
+  background: radial-gradient(circle, rgba(255,77,45,0.6), transparent 70%);
+  filter: blur(22px);
+}
+.storyDrop2 {
+  --dur: 6.5s; --delay: -2s;
+  width: 180px; height: 180px;
+  top: 55%; left: 80%;
+  background: radial-gradient(circle, rgba(45,212,255,0.5), transparent 70%);
+  filter: blur(18px);
+}
+.storyDrop3 {
+  --dur: 5.8s; --delay: -4s;
+  width: 150px; height: 150px;
+  top: 30%; left: 72%;
+  background: radial-gradient(circle, rgba(255,183,3,0.55), transparent 70%);
+  filter: blur(16px);
+}
+.storyDrop4 {
+  --dur: 7s; --delay: -1.5s;
+  width: 120px; height: 120px;
+  top: 70%; left: 58%;
+  background: radial-gradient(circle, rgba(255,77,45,0.45), transparent 70%);
+  filter: blur(14px);
+}
+.storyDrop5 {
+  --dur: 6s; --delay: -3s;
+  width: 100px; height: 100px;
+  top: 15%; left: 88%;
+  background: radial-gradient(circle, rgba(45,212,255,0.4), transparent 70%);
+  filter: blur(12px);
+}
+
+.distribution {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f141b 0%, #1d2840 100%);
+  color: #fff;
+}
+.distribution :global(h2) { color: #fff; }
+.distribution :global(p) { color: rgba(255,255,255,0.72); }
+.distribution :global(.stat) {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: none;
+}
+.distribution :global(.value) {
+  color: #2dd4ff;
+  font-size: 20px;
+}
+.distribution :global(.label) { color: rgba(255,255,255,0.5); }
+.distribution::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(700px 400px at 5% 85%, rgba(255,77,45,0.3), transparent 60%),
+    radial-gradient(600px 380px at 95% 10%, rgba(45,212,255,0.22), transparent 60%),
+    radial-gradient(400px 300px at 50% 50%, rgba(255,183,3,0.12), transparent 60%);
+  animation: quality-shift 9s ease-in-out infinite alternate;
+  z-index: 0;
+}
+.distribution::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    120deg,
+    rgba(255,255,255,0.025) 0px,
+    rgba(255,255,255,0.025) 1px,
+    transparent 1px,
+    transparent 52px
+  );
+  z-index: 0;
+}
+.distribution :global(.container) { position: relative; z-index: 1; }
+
+.distOrb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: quality-float 7s ease-in-out infinite alternate;
+}
+.distOrbA {
+  width: 260px; height: 260px;
+  background: radial-gradient(circle, rgba(45,212,255,0.3), transparent 70%);
+  top: -60px; right: -60px;
+  filter: blur(50px);
+  animation-delay: 0s;
+}
+.distOrbB {
+  width: 220px; height: 220px;
+  background: radial-gradient(circle, rgba(255,77,45,0.28), transparent 70%);
+  bottom: -40px; left: -40px;
+  filter: blur(45px);
+  animation-delay: -3s;
+}
