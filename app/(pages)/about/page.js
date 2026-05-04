@@ -7,19 +7,19 @@ import styles from '../../../styles/pages/about.module.css'
 
 export const metadata = {
   title: 'About Atlas – Monitors & Motherboards for Bangladesh',
-  description: 'Learn about Atlas, a Bangladesh hardware brand building RAVEN motherboards and 17 to 24 inch monitors for offices, shops, schools, and daily-use systems.',
+  description: 'Learn about Atlas — a Bangladesh PC hardware brand founded 2020. RAVEN motherboards, 17–24 inch IPS & VA monitors, 1–3 year warranty, and honest no-hype specs.',
   keywords: 'about Atlas Bangladesh, Atlas hardware brand story Bangladesh, Atlas company history Bangladesh, Atlas founded 2020 Bangladesh, Atlas comparts about, who is Atlas hardware Bangladesh, Atlas PC brand Bangladesh, affordable PC hardware Bangladesh, budget hardware brand Bangladesh, honest hardware brand Bangladesh, reliable hardware Bangladesh, Atlas no compromise access, Atlas honesty over hype, Atlas hardware principles, trusted PC hardware brand Bangladesh, Atlas 17 to 24 inch monitor Bangladesh, Atlas monitor range Bangladesh, Atlas IPS VA monitor Bangladesh, Atlas 60Hz 100Hz monitor Bangladesh, Atlas HDMI VGA monitor Bangladesh, Atlas LED display Bangladesh, Atlas monitor warranty Bangladesh, 1 to 3 year monitor warranty Bangladesh, Atlas RAVEN series Bangladesh, Atlas RAVEN motherboard range, Atlas Intel AMD motherboard Bangladesh, Atlas H61 H81 H311 B450M motherboard, Atlas AM4 LGA motherboard Bangladesh, Atlas DDR3 DDR4 motherboard Bangladesh, Atlas RAVEN Intel 2nd 9th gen, Atlas quality control Bangladesh, Atlas panel inspection Bangladesh, Atlas port check Bangladesh, Atlas QA review Bangladesh, Atlas 1 year warranty Bangladesh, Atlas 3 year warranty Bangladesh, Atlas manufacturer warranty Bangladesh, reliable PC hardware warranty Bangladesh, office monitor Bangladesh, school computer hardware Bangladesh, student desk setup Bangladesh, CCTV monitor Bangladesh, shop PC setup Bangladesh, small office hardware Bangladesh, daily use PC hardware Bangladesh, server room monitor Bangladesh, Atlas hardware Bangladesh market, Atlas comparts Bangladesh, AB Computer Atlas Bangladesh, buy Atlas hardware Bangladesh',
   alternates: { canonical: 'https://www.atlascomparts.com/about' },
   openGraph: {
     title: 'About Atlas – Monitors & Motherboards for Bangladesh',
-    description: 'Learn about Atlas, a Bangladesh hardware brand building RAVEN motherboards and 17 to 24 inch monitors for offices, shops, schools, and daily-use systems.',
+    description: 'Learn about Atlas — a Bangladesh PC hardware brand founded 2020. RAVEN motherboards, 17–24 inch IPS & VA monitors, 1–3 year warranty, and honest no-hype specs.',
     images: ['/assets/images/products/ats22ifw100-main.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'About Atlas – Monitors & Motherboards for Bangladesh',
-    description: 'Learn about Atlas, a Bangladesh hardware brand building RAVEN motherboards and 17 to 24 inch monitors for offices, shops, schools, and daily-use systems.',
+    description: 'Learn about Atlas — a Bangladesh PC hardware brand founded 2020. RAVEN motherboards, 17–24 inch IPS & VA monitors, 1–3 year warranty, and honest no-hype specs.',
     images: ['/assets/images/products/ats22ifw100-main.png'],
   },
 }
