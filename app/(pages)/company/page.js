@@ -7,19 +7,19 @@ import styles from '../../../styles/pages/company.module.css'
 
 export const metadata = {
   title: 'Atlas Company – PC Hardware Manufacturer & Distributor | Bangladesh',
-  description: 'Atlas designs and distributes reliable motherboards and monitors across Bangladesh. Manufacturing-grade quality control, retail & corporate distribution, and Dhaka service center.',
+  description: 'Atlas — Bangladesh PC hardware brand since 2020. RAVEN motherboards for Intel & AMD, 17–24 inch monitors. Distributed by AB Computer with 1–3 year warranty.',
   keywords: 'Atlas hardware company Bangladesh, Atlas PC hardware brand Bangladesh, Atlas manufacturer Bangladesh, Atlas hardware distributor Bangladesh, Atlas comparts Bangladesh, Atlas company Dhaka, Atlas brand Bangladesh 2020, Atlas hardware Bangladesh founded 2020, Atlas technology Bangladesh, Atlas computer hardware Bangladesh, Atlas motherboard monitor brand Bangladesh, Atlas RAVEN motherboard manufacturer, Atlas LED monitor manufacturer Bangladesh, PC hardware manufacturer Bangladesh, computer monitor brand Bangladesh, motherboard brand Bangladesh, hardware company Bangladesh Dhaka, Atlas authorized distributor Bangladesh, AB Computer Atlas distributor Bangladesh, Atlas retail Bangladesh, Atlas corporate supply Bangladesh, buy Atlas hardware Bangladesh, Atlas hardware shop Bangladesh, Atlas hardware dealer Bangladesh, computer hardware dealer Dhaka, PC parts distributor Bangladesh, Atlas hardware warranty Bangladesh, 1 year warranty monitor Bangladesh, 3 year warranty motherboard Bangladesh, quality PC hardware Bangladesh, reliable computer hardware Bangladesh, hardware quality control Bangladesh, Atlas service center Bangladesh, Atlas warranty service Dhaka, Atlas after-sales support Bangladesh, office PC hardware Bangladesh, student PC hardware Bangladesh, school computer hardware Bangladesh, CCTV setup monitor Bangladesh, small business PC hardware Bangladesh, affordable PC hardware Bangladesh, budget hardware brand Bangladesh, hardware for offices Bangladesh, hardware for shops Bangladesh, computer setup Bangladesh, best budget monitor brand Bangladesh, best budget motherboard brand Bangladesh, reliable hardware brand Bangladesh, trusted PC hardware brand Bangladesh, Atlas IPS monitor brand Bangladesh, Atlas AM4 motherboard brand Bangladesh, Atlas Intel motherboard Bangladesh, Atlas AMD motherboard Bangladesh, local hardware brand Bangladesh, Bangladesh PC hardware manufacturer',
   alternates: { canonical: 'https://www.atlascomparts.com/company' },
   openGraph: {
     title: 'Atlas Company – PC Hardware Manufacturer & Distributor | Bangladesh',
-    description: 'Atlas designs and distributes reliable motherboards and monitors across Bangladesh. Manufacturing-grade quality control, retail & corporate distribution, and Dhaka service center.',
+    description: 'Atlas — Bangladesh PC hardware brand since 2020. RAVEN motherboards for Intel & AMD, 17–24 inch monitors. Distributed by AB Computer with 1–3 year warranty.',
     images: ['/assets/images/products/raven-b450m-frost-main.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Atlas Company – PC Hardware Manufacturer & Distributor | Bangladesh',
-    description: 'Atlas designs and distributes reliable motherboards and monitors across Bangladesh. Manufacturing-grade quality control, retail & corporate distribution, and Dhaka service center.',
+    description: 'Atlas — Bangladesh PC hardware brand since 2020. RAVEN motherboards for Intel & AMD, 17–24 inch monitors. Distributed by AB Computer with 1–3 year warranty.',
     images: ['/assets/images/products/raven-b450m-frost-main.png'],
   },
 }
