@@ -39,24 +39,6 @@ export default function AboutPage() {
               <p className="eyebrow">About Atlas</p>
               <h1>Designed for the setups people actually use.</h1>
               <p>Atlas specializes in 17 to 24 inch monitors and RAVEN series motherboards for offices, student setups, CCTV stations, and daily-use systems across Bangladesh.</p>
-              <div className="hero-chips">
-                <div className="chip">
-                  <span className="chip-value">17-24&quot;</span>
-                  <span className="chip-label">Display Range</span>
-                </div>
-                <div className="chip">
-                  <span className="chip-value">60&ndash;100Hz</span>
-                  <span className="chip-label">Refresh Rate</span>
-                </div>
-                <div className="chip">
-                  <span className="chip-value">1&ndash;3 Yr</span>
-                  <span className="chip-label">Warranty</span>
-                </div>
-                <div className="chip">
-                  <span className="chip-value">IPS / VA</span>
-                  <span className="chip-label">Panel Types</span>
-                </div>
-              </div>
             </div>
           </div>
         </section>
