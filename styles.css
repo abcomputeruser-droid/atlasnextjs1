@@ -588,11 +588,6 @@ button {
 .product-hero--video .product-hero-grid {
   z-index: 2;
   width: 100%;
-  grid-template-columns: 1fr;
-}
-
-.product-hero--video .product-hero-content {
-  max-width: 700px;
 }
 
 .product-hero--video .eyebrow {
