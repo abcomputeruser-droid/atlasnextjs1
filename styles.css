@@ -3053,6 +3053,9 @@ button.cta {
   .product-hero-media {
     order: -1;
   }
+  .product-hero--video {
+    min-height: 85svh;
+  }
   .overview-header {
     grid-template-columns: 1fr;
   }
@@ -3131,6 +3134,9 @@ button.cta {
   }
   .product-hero {
     padding: 44px 0 56px;
+  }
+  .product-hero--video {
+    min-height: 75svh;
   }
   .hero-chips {
     grid-template-columns: 1fr;
