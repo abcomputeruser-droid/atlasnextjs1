@@ -72,7 +72,7 @@ export default function HomeClient() {
       <Nav tagline="Comparts" navType="home" btnText="All Products" btnHref="/all-products" brandHref="/" />
       <main>
         <section className="hero product-hero product-hero--video" id="top">
-          <video className="product-hero-video" autoPlay muted loop playsInline preload="auto" disablePictureInPicture disableRemotePlayback data-playback-rate="0.9" aria-hidden="true">
+          <video className="product-hero-video" autoPlay muted loop playsInline preload="none" disablePictureInPicture disableRemotePlayback data-playback-rate="0.9" aria-hidden="true">
             <source src="/assets/videos/home-hero-bg.mp4" type="video/mp4" />
           </video>
           <div className="container product-hero-grid">

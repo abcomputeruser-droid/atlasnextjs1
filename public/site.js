@@ -160,9 +160,9 @@ function initScrollStory() {
 function initHeroVideo() {
   const video = qs(".product-hero-video");
   if (!video) return;
-  if (window.matchMedia("(max-width: 768px)").matches) return;
 
-  const playbackRate = Number(video.dataset.playbackRate || 0.9);
+  const isMobile = window.matchMedia("(max-width: 768px)").matches;
+  const playbackRate = isMobile ? 0.5 : Number(video.dataset.playbackRate || 0.9);
   const readyStateTarget = HTMLMediaElement.HAVE_FUTURE_DATA;
 
   const setPlaybackRate = () => {
