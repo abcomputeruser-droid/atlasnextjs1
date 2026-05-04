@@ -553,6 +553,10 @@ button {
 
 .product-hero--video {
   background: #0b0f1a;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .product-hero-video {
@@ -583,6 +587,7 @@ button {
 
 .product-hero--video .product-hero-grid {
   z-index: 2;
+  width: 100%;
 }
 
 .product-hero--video .eyebrow {
