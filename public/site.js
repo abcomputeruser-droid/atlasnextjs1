@@ -161,7 +161,7 @@ function initHeroVideo() {
   const video = qs(".product-hero-video");
   if (!video) return;
 
-  const playbackRate = Number(video.dataset.playbackRate || 0.5);
+  const playbackRate = Number(video.dataset.playbackRate || 0.7);
   const readyStateTarget = HTMLMediaElement.HAVE_FUTURE_DATA;
 
   const setPlaybackRate = () => {
