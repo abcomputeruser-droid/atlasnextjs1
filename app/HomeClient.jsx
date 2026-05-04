@@ -72,9 +72,10 @@ export default function HomeClient() {
       <Nav tagline="Comparts" navType="home" btnText="All Products" btnHref="/all-products" brandHref="/" />
       <main>
         <section className="hero product-hero product-hero--video" id="top">
-          <video className="product-hero-video" autoPlay muted loop playsInline preload="auto" disablePictureInPicture disableRemotePlayback data-playback-rate="0.9" aria-hidden="true">
+          <video className="product-hero-video" autoPlay muted loop playsInline preload="none" disablePictureInPicture disableRemotePlayback data-playback-rate="0.9" aria-hidden="true">
             <source src="/assets/videos/home-hero-bg.mp4" type="video/mp4" />
           </video>
+          <img className="product-hero-poster" src="/assets/images/products/ats24ifb100-main.png" alt="" aria-hidden="true" />
           <div className="container product-hero-grid">
             <div className="product-hero-content">
               <p className="eyebrow">Atlas | Founded 2020</p>
@@ -137,7 +138,7 @@ export default function HomeClient() {
                       <p>{slide.desc}</p>
                     </div>
                     <div className="na-img-wrap">
-                      <img src={slide.img} alt={slide.alt} loading="lazy" />
+                      <img src={slide.img} alt={slide.alt} loading={i === 0 ? 'eager' : 'lazy'} fetchPriority={i === 0 ? 'high' : 'auto'} />
                     </div>
                   </div>
                 </Link>
