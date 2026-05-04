@@ -583,7 +583,6 @@ button {
 
 .product-hero--video .product-hero-grid {
   z-index: 2;
-  width: 100%;
   grid-template-columns: 1fr;
 }
 
