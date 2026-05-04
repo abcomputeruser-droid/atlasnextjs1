@@ -104,11 +104,6 @@ export default function AboutPage() {
             <div className="section-title">Atlas Principles</div>
             <div className="cards">
               <div className="card">
-                <p className="eyebrow">No Compromise on Access</p>
-                <h3>Price should never block a working setup.</h3>
-                <p>Every Atlas product is priced with the real buyer in mind — the student setting up their first desk, the shop owner running a CCTV rack, the small office that just needs screens that turn on every morning without drama.</p>
-              </div>
-              <div className="card">
                 <p className="eyebrow">Honesty Over Hype</p>
                 <h3>We say what it does. Nothing more.</h3>
                 <p>No gaming branding slapped on a 60Hz office panel. No inflated specs. Atlas lists what matters — panel type, ports, size, refresh rate — and lets the hardware speak. Buyers know exactly what they are getting before they open the box.</p>
@@ -117,6 +112,11 @@ export default function AboutPage() {
                 <p className="eyebrow">Built to Last Daily Use</p>
                 <h3>Reliability is the only feature that matters.</h3>
                 <p>Atlas hardware is not built for benchmarks. It is built for eight hours a day, five days a week, year after year. Stable thermals, solid port construction, and panels that hold up — because the people who buy Atlas cannot afford for it to fail.</p>
+              </div>
+              <div className="card">
+                <p className="eyebrow">No Compromise on Access</p>
+                <h3>Price should never block a working setup.</h3>
+                <p>Every Atlas product is priced with the real buyer in mind — the student setting up their first desk, the shop owner running a CCTV rack, the small office that just needs screens that turn on every morning without drama.</p>
               </div>
               <div className="card">
                 <p className="eyebrow">Backed After the Sale</p>
