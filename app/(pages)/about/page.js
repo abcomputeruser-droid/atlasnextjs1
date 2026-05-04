@@ -157,8 +157,7 @@ export default function AboutPage() {
             <ul className="company-list">
               <li>Panel and backlight inspection</li>
               <li>Port and connectivity checks</li>
-              <li>Motherboard burn-in and stability test</li>
-              <li>Final QA review before shipment</li>
+<li>Final QA review before shipment</li>
             </ul>
           </div>
         </section>
