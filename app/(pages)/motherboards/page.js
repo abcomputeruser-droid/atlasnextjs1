@@ -7,19 +7,19 @@ import motherboardData from '../../../public/motherboard.json'
 
 export const metadata = {
   title: 'Atlas RAVEN Motherboards – Intel & AMD AM4 | atlascomparts.com',
-  description: 'Four Atlas RAVEN motherboards covering Intel 2nd–9th Gen and AMD Ryzen 1000–5600 (AM4). DDR3/DDR4, M.2 NVMe, Micro-ATX and ATX. Available in Bangladesh.',
+  description: 'Shop Atlas RAVEN motherboards in Bangladesh. H61, H81, H311 for Intel 2nd–9th Gen & B450M for Ryzen 1000–5600. DDR3/DDR4, M.2 NVMe, budget to mid-range.',
   keywords: 'Atlas RAVEN motherboards Bangladesh, Atlas motherboard category Bangladesh, Atlas motherboard lineup Bangladesh, Atlas RAVEN series Bangladesh, Atlas motherboard brand Bangladesh, Atlas hardware motherboard Bangladesh, buy Atlas motherboard Bangladesh, Intel motherboard Bangladesh, Intel LGA1151 motherboard Bangladesh, Intel LGA1150 motherboard Bangladesh, Intel LGA1155 motherboard Bangladesh, Intel 2nd gen motherboard Bangladesh, Intel 3rd gen motherboard Bangladesh, Intel 4th gen motherboard Bangladesh, Intel 6th gen motherboard Bangladesh, Intel 9th gen motherboard Bangladesh, Intel Micro-ATX motherboard Bangladesh, Intel ATX motherboard Bangladesh, H61 motherboard Bangladesh, H81 motherboard Bangladesh, H311 motherboard Bangladesh, AMD AM4 motherboard Bangladesh, AMD Ryzen motherboard Bangladesh, Ryzen 1000 motherboard Bangladesh, Ryzen 3000 motherboard Bangladesh, Ryzen 5600 motherboard Bangladesh, B450M motherboard Bangladesh, AM4 socket motherboard Bangladesh, Micro-ATX AM4 motherboard Bangladesh, DDR3 motherboard Bangladesh, DDR4 motherboard Bangladesh, DDR4 2666MHz motherboard Bangladesh, DDR4 3200MHz OC motherboard Bangladesh, M.2 NVMe motherboard Bangladesh, SATA III motherboard Bangladesh, motherboard with M.2 slot Bangladesh, Gigabit LAN motherboard Bangladesh, USB 3.0 motherboard Bangladesh, HDMI VGA motherboard Bangladesh, HD audio motherboard Bangladesh, PCIe motherboard Bangladesh, budget motherboard Bangladesh, affordable motherboard Bangladesh, office motherboard Bangladesh, student PC motherboard Bangladesh, PC build Bangladesh motherboard, best budget motherboard Bangladesh, entry level motherboard Bangladesh, reliable motherboard Bangladesh, computer shop motherboard Bangladesh',
   alternates: { canonical: 'https://www.atlascomparts.com/motherboards' },
   openGraph: {
     title: 'Atlas RAVEN Motherboards – Intel & AMD AM4 | atlascomparts.com',
-    description: 'Four Atlas RAVEN motherboards covering Intel 2nd–9th Gen and AMD Ryzen 1000–5600 (AM4). DDR3/DDR4, M.2 NVMe.',
+    description: 'Shop Atlas RAVEN motherboards in Bangladesh. H61, H81, H311 for Intel 2nd–9th Gen & B450M for Ryzen 1000–5600. DDR3/DDR4, M.2 NVMe, budget to mid-range.',
     images: ['/assets/images/products/raven-b450m-frost-main.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Atlas RAVEN Motherboards – Intel & AMD AM4 | atlascomparts.com',
-    description: 'Four Atlas RAVEN motherboards covering Intel 2nd–9th Gen and AMD Ryzen 1000–5600 (AM4). DDR3/DDR4, M.2 NVMe.',
+    description: 'Shop Atlas RAVEN motherboards in Bangladesh. H61, H81, H311 for Intel 2nd–9th Gen & B450M for Ryzen 1000–5600. DDR3/DDR4, M.2 NVMe, budget to mid-range.',
     images: ['/assets/images/products/raven-b450m-frost-main.png'],
   },
 }
