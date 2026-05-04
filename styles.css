@@ -554,7 +554,7 @@ button {
 .product-hero--video {
   background: #0b0f1a;
   min-height: 100svh;
-  padding: 44px 0;
+  padding: 80px 0 60px;
 }
 
 .product-hero-video {
@@ -586,6 +586,19 @@ button {
 .product-hero--video .product-hero-grid {
   z-index: 2;
   width: 100%;
+  grid-template-columns: 1fr;
+}
+
+.product-hero--video .product-hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 680px;
+}
+
+.product-hero--video h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.15;
 }
 
 .product-hero--video .eyebrow {
@@ -3137,6 +3150,7 @@ button.cta {
   }
   .product-hero--video {
     min-height: 75svh;
+    padding: 60px 0 40px;
   }
   .hero-chips {
     grid-template-columns: 1fr;
