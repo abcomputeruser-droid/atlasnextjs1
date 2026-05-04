@@ -225,7 +225,7 @@ export default function HomeClient() {
                 <p>AM4 motherboard built for Ryzen 1000 through 5600 systems, with 3200 MHz (OC) memory support, M.2 NVMe storage, and stable daily-use performance.</p>
               </div>
               <div className="home-feature-banner-actions">
-                <Link className="cta" href="/products/atlas-raven-b450m-frost-micro-atx-am4-motherboard-with-ryzen-1000-5600-support">Shop Now</Link>
+                <Link className="cta" href="/products/atlas-raven-b450m-frost-micro-atx-am4-motherboard-with-ryzen-1000-5600-support">View</Link>
                 <Link className="cta ghost" href="/motherboards">All Motherboards</Link>
               </div>
             </div>
