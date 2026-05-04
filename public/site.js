@@ -43,13 +43,14 @@ function initReveal() {
         }
       });
     },
-    { threshold: 0.18 }
+    { threshold: 0.06 }
   );
 
   revealTargets.forEach((section) => observer.observe(section));
 }
 
 function initMotionBackground() {
+  if (window.matchMedia("(max-width: 768px)").matches) return;
   const stage = qs(".motion-bg");
   if (!stage) return;
 
