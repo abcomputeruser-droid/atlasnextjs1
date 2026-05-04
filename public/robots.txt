@@ -1,18 +1,4 @@
 User-agent: *
 Allow: /
 
-# Block admin/utility pages from indexing
-Disallow: /dashboard.html
-Disallow: /404.html
-
-# Block script and data files
-Disallow: /*.js$
-Disallow: /*.json$
-
-# Allow all crawlers access to CSS and images for proper rendering
-Allow: /styles.css
-Allow: /assets/
-Allow: /sw.js
-Allow: /sw-register.js
-
 Sitemap: https://www.atlascomparts.com/sitemap.xml
