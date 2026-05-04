@@ -7,19 +7,19 @@ import monitorData from '../../../public/monitor.json'
 
 export const metadata = {
   title: 'Atlas Monitors – Displays Built for Daily Use | atlascomparts.com',
-  description: 'Nine Atlas monitor models from 17 to 24 inches with HDMI and VGA on every display. IPS and VA panels, 60–100Hz refresh rates, 1–3 year warranty. Available in Bangladesh.',
+  description: 'Shop Atlas monitors in Bangladesh. 9 models from 17 to 24 inches — IPS & VA panels, 60–100Hz, Full HD 1080p, HDMI & VGA on every display. 1–3 year warranty.',
   keywords: 'Atlas monitors Bangladesh, Atlas monitor category Bangladesh, Atlas monitor lineup Bangladesh, Atlas LED monitor Bangladesh, Atlas display Bangladesh, Atlas monitor brand Bangladesh, buy Atlas monitor Bangladesh, atlas comparts monitor BD, Atlas 17 inch monitor Bangladesh, Atlas 19 inch monitor Bangladesh, Atlas 22 inch monitor Bangladesh, Atlas 21.5 inch monitor Bangladesh, Atlas 23.8 inch monitor Bangladesh, Atlas 24 inch monitor Bangladesh, 17 to 24 inch monitor Bangladesh, IPS monitor Bangladesh, VA monitor Bangladesh, IPS panel monitor Bangladesh, Atlas IPS monitor Bangladesh, Atlas VA monitor Bangladesh, IPS A+ monitor Bangladesh, LED monitor Bangladesh, 60Hz monitor Bangladesh, 100Hz monitor Bangladesh, Atlas 100Hz monitor Bangladesh, 100Hz monitor Bangladesh price, smooth refresh rate monitor Bangladesh, 100Hz gaming monitor Bangladesh, Full HD monitor Bangladesh, 1920x1080 monitor Bangladesh, FHD display Bangladesh, HD monitor Bangladesh, 1080p monitor Bangladesh, HDMI VGA monitor Bangladesh, monitor with HDMI and VGA Bangladesh, dual input monitor Bangladesh, HDMI monitor Bangladesh, VGA monitor Bangladesh, anti-glare monitor Bangladesh, 5ms response monitor Bangladesh, wide viewing angle monitor Bangladesh, slim monitor Bangladesh, borderless monitor Bangladesh, VESA mount monitor Bangladesh, office monitor Bangladesh, student monitor Bangladesh, CCTV monitor Bangladesh, budget monitor Bangladesh, affordable monitor Bangladesh, best monitor Bangladesh price',
   alternates: { canonical: 'https://www.atlascomparts.com/monitors' },
   openGraph: {
     title: 'Atlas Monitors – Displays Built for Daily Use | atlascomparts.com',
-    description: 'Nine Atlas monitor models from 17 to 24 inches with HDMI and VGA on every display. IPS and VA panels, 60–100Hz refresh rates.',
+    description: 'Shop Atlas monitors in Bangladesh. 9 models from 17 to 24 inches — IPS & VA panels, 60–100Hz, Full HD 1080p, HDMI & VGA on every display. 1–3 year warranty.',
     images: ['/assets/images/products/ats22ifw100-main.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Atlas Monitors – Displays Built for Daily Use | atlascomparts.com',
-    description: 'Nine Atlas monitor models from 17 to 24 inches with HDMI and VGA on every display. IPS and VA panels, 60–100Hz refresh rates.',
+    description: 'Shop Atlas monitors in Bangladesh. 9 models from 17 to 24 inches — IPS & VA panels, 60–100Hz, Full HD 1080p, HDMI & VGA on every display. 1–3 year warranty.',
     images: ['/assets/images/products/ats22ifw100-main.png'],
   },
 }
