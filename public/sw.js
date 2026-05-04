@@ -1,4 +1,4 @@
-var CACHE_NAME = 'atlas-cache-2026-05-04';
+var CACHE_NAME = 'atlas-cache-2026-05-04c';
 
 var PRECACHE = [
   '/',
@@ -6,8 +6,8 @@ var PRECACHE = [
   '/site.js',
   '/seo.js',
   '/image-optimizer.js',
-  '/view-counter.js',
-  '/live-notifications.js',
+  '/_a.js',
+  '/_b.js',
   '/sw-register.js',
   '/assets/images/brand/atlas-logo.svg',
 ];

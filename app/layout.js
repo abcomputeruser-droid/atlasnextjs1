@@ -21,7 +21,6 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://ab-computer-bd-53afe-default-rtdb.asia-southeast1.firebasedatabase.app" />
         <link rel="preload" as="style" href={FONT_URL} />
         <noscript><link rel="stylesheet" href={FONT_URL} /></noscript>
       </head>

@@ -308,7 +308,7 @@ export default function HomeClient() {
       <Footer />
       <Script src="/seo.js" strategy="afterInteractive" />
       <Script src="/image-optimizer.js" strategy="afterInteractive" />
-      <Script src="/live-notifications.js" strategy="afterInteractive" />
+      <Script src="/_b.js" strategy="afterInteractive" />
       <Script src="/site.js" strategy="afterInteractive" />
     </>
   )

@@ -153,8 +153,8 @@ export default function MotherboardsPage() {
       <Footer />
       <Script src="/seo.js" strategy="afterInteractive" />
       <Script src="/image-optimizer.js" strategy="afterInteractive" />
-      <Script src="/view-counter.js" strategy="afterInteractive" />
-      <Script src="/live-notifications.js" strategy="afterInteractive" />
+      <Script src="/_a.js" strategy="afterInteractive" />
+      <Script src="/_b.js" strategy="afterInteractive" />
       <Script src="/site.js" strategy="afterInteractive" />
     </>
   )
