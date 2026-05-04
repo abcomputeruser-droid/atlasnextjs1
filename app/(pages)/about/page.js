@@ -219,10 +219,6 @@ export default function AboutPage() {
                     <td>A warranty that means something</td>
                     <td>Every Atlas product carries a 1 to 3 year manufacturer warranty. If it fails, the process is clear and the coverage is real.</td>
                   </tr>
-                  <tr>
-                    <td>Available where you shop</td>
-                    <td>Stocked at AB Computer, Sell Tech, Star Tech, and retailers nationwide — so you are never far from the hardware or the support.</td>
-                  </tr>
                 </tbody>
               </table>
             </div>
