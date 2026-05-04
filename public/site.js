@@ -183,8 +183,10 @@ function initHeroVideo() {
   };
 
   video.muted = true;
+  video.loop = true;
   video.playsInline = true;
   video.setAttribute("muted", "");
+  video.setAttribute("loop", "");
   video.setAttribute("playsinline", "");
 
   video.addEventListener("loadedmetadata", setPlaybackRate);
@@ -194,6 +196,10 @@ function initHeroVideo() {
     ensurePlaying();
   });
   video.addEventListener("playing", markReady);
+  video.addEventListener("ended", () => {
+    video.currentTime = 0;
+    ensurePlaying();
+  });
 
   if (video.readyState >= readyStateTarget) {
     setPlaybackRate();
