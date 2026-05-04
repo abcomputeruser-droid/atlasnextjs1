@@ -588,9 +588,8 @@ button {
 }
 
 .product-hero--video .product-hero-content {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+  display: grid;
+  gap: 16px;
   max-width: 680px;
 }
 
