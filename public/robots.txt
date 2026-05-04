@@ -12,5 +12,7 @@ Disallow: /*.json$
 # Allow all crawlers access to CSS and images for proper rendering
 Allow: /styles.css
 Allow: /assets/
+Allow: /sw.js
+Allow: /sw-register.js
 
 Sitemap: https://www.atlascomparts.com/sitemap.xml

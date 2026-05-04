@@ -1,4 +1,5 @@
 import "../styles.css"
+import Script from 'next/script'
 
 export const metadata = {
   metadataBase: new URL("https://www.atlascomparts.com"),
@@ -20,7 +21,11 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://ab-computer-bd-53afe-default-rtdb.asia-southeast1.firebasedatabase.app" />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Script src="/sw-register.js" strategy="afterInteractive" />
+        <Script src="/indexnow.js" strategy="afterInteractive" />
+      </body>
     </html>
   )
 }
