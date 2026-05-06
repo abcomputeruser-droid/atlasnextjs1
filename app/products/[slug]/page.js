@@ -1,10 +1,38 @@
 import Link from 'next/link'
 import Script from 'next/script'
 import { notFound } from 'next/navigation'
+import fs from 'node:fs'
+import path from 'node:path'
 import Nav from '../../../components/Nav'
 import Footer from '../../../components/Footer'
 import MotionBg from '../../../components/MotionBg'
 import { PRODUCTS } from '../../../lib/products-data'
+
+const SITE_URL = 'https://www.atlascomparts.com'
+
+function getCanonicalUrl(slug) {
+  return `${SITE_URL}/products/${slug}/`
+}
+
+function hasPublicAsset(src) {
+  if (!src) return false
+  const assetPath = path.join(process.cwd(), 'public', src.replace(/^\//, ''))
+  return fs.existsSync(assetPath)
+}
+
+function getProduct(slug) {
+  const product = PRODUCTS[slug]
+  if (!product) return null
+
+  const gallery = (product.gallery || []).filter(item => hasPublicAsset(item.src))
+
+  return {
+    ...product,
+    gallery: gallery.length
+      ? gallery
+      : [{ src: product.image, alt: product.title, caption: 'Product View', cls: 'wide' }],
+  }
+}
 
 export function generateStaticParams() {
   return Object.keys(PRODUCTS).map(slug => ({ slug }))
@@ -12,16 +40,17 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const { slug } = await params
-  const p = PRODUCTS[slug]
+  const p = getProduct(slug)
   if (!p) return {}
   return {
     title: p.meta.title,
     description: p.meta.description,
     keywords: p.meta.keywords,
-    alternates: { canonical: p.meta.canonical },
+    alternates: { canonical: getCanonicalUrl(slug) },
     openGraph: {
       title: p.meta.title,
       description: p.meta.description,
+      url: getCanonicalUrl(slug),
       images: [p.meta.image],
       type: 'website',
     },
@@ -36,7 +65,7 @@ export async function generateMetadata({ params }) {
 
 export default async function ProductPage({ params }) {
   const { slug } = await params
-  const p = PRODUCTS[slug]
+  const p = getProduct(slug)
   if (!p) notFound()
 
   return (
