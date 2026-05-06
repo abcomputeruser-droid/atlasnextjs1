@@ -548,6 +548,14 @@ button {
   isolation: isolate;
 }
 
+.product-category-hero {
+  position: relative;
+  padding: 60px 0 72px;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(246, 247, 251, 0.96) 55%, rgba(255, 255, 255, 0.92) 100%);
+  isolation: isolate;
+}
+
 .product-hero--video {
   background: #0b0f1a;
 }
@@ -630,6 +638,17 @@ button {
 .product-hero-content {
   display: grid;
   gap: 16px;
+}
+
+.product-category-hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.product-category-hero-content {
+  display: grid;
+  gap: 16px;
+  max-width: 760px;
 }
 
 .hero-chips {
@@ -3156,7 +3175,8 @@ button.cta {
   .hero {
     padding: 28px 0 36px;
   }
-  .product-hero {
+  .product-hero,
+  .product-category-hero {
     padding: 44px 0 56px;
   }
   .hero-chips {
